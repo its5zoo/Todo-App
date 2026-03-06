@@ -253,6 +253,8 @@ body {
     border: 1px solid #00e1ff !important;
     box-shadow: 0 0 10px rgba(0, 225, 255, 0.2) !important;
     flex: 1;
+    min-width: 0;
+    width: 100%;
     margin-right: 15px;
     padding: 5px 10px;
     border-radius: 6px;
@@ -267,13 +269,22 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 576px) {
     .custom-container {
-        margin: 15px;
+        margin: 15px auto;
+        width: 90%;
         padding: 25px 20px !important;
         border-radius: 20px !important;
     }
 
     .header-title {
         font-size: 1.75rem;
+    }
+
+    .custom-input {
+        font-size: 0.9rem;
+    }
+
+    .custom-input::placeholder {
+        font-size: 0.9rem;
     }
 
     .task-list-scroll {
@@ -284,9 +295,14 @@ body {
         opacity: 1;
         transform: scale(1);
     }
-    
+
     .list-group-item {
         padding: 12px;
+    }
+
+    .edit-input {
+        margin-right: 10px;
+        font-size: 0.9rem;
     }
 
     .bg-shape-1 {

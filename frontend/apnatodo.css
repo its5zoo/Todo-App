@@ -1,0 +1,265 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #0a192f, #020c1b);
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Abstract shapes for background */
+.bg-shape-1,
+.bg-shape-2 {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: -1;
+    animation: drift 20s infinite alternate ease-in-out;
+}
+
+.bg-shape-1 {
+    width: 500px;
+    height: 500px;
+    background: #2196f3;
+    top: -100px;
+    left: -100px;
+    opacity: 0.4;
+}
+
+.bg-shape-2 {
+    width: 500px;
+    height: 500px;
+    background: #00e1ff;
+    bottom: -100px;
+    right: -100px;
+    opacity: 0.4;
+    animation-delay: -10s;
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, 30px) scale(1.05);
+    }
+}
+
+.custom-container {
+    max-width: 520px;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(30, 25, 45, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    border-radius: 24px !important;
+    position: relative;
+    z-index: 1;
+}
+
+.header-title {
+    background: linear-gradient(to right, #ffffff, #a2d2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.custom-input {
+    background: rgba(10, 5, 20, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 14px 0 0 14px !important;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.custom-input:focus {
+    box-shadow: 0 0 0 2px rgba(0, 225, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    background-color: rgba(10, 5, 20, 0.6) !important;
+    border-color: rgba(0, 225, 255, 0.4) !important;
+}
+
+.custom-btn {
+    background: linear-gradient(135deg, #00e1ff 0%, #0060ff 100%);
+    border: none;
+    border-radius: 0 14px 14px 0 !important;
+    transition: all 0.3s ease;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 96, 255, 0.3);
+}
+
+.custom-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 225, 255, 0.5);
+    color: white;
+}
+
+.custom-btn:active {
+    transform: scale(0.98);
+}
+
+.task-list-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.task-list-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.task-list-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+
+.task-list-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.list-group-item {
+    background: rgba(35, 30, 50, 0.7) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 14px !important;
+    margin-bottom: 12px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s, background 0.25s;
+    animation: slideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.list-group-item:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(50, 45, 70, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.list-group-item.fall {
+    animation: fallOut 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+@keyframes fallOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+}
+
+/* Custom Checkbox */
+.task-checkbox {
+    width: 22px;
+    height: 22px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    flex-shrink: 0;
+}
+
+.task-checkbox:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.task-checkbox:checked {
+    background: linear-gradient(135deg, #00e1ff 0%, #0060ff 100%);
+    border-color: transparent;
+    box-shadow: 0 0 12px rgba(0, 225, 255, 0.4);
+}
+
+.task-checkbox:checked::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 13px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.task-checkbox:checked+.task-text {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.task-text {
+    transition: color 0.3s ease;
+}
+
+.action-btn {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.2s ease;
+    border: none !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.list-group-item:hover .action-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.action-btn.edit:hover {
+    background: rgba(0, 225, 255, 0.15) !important;
+    color: #00e1ff !important;
+}
+
+.action-btn.delete:hover {
+    background: rgba(255, 59, 48, 0.15) !important;
+    color: #ff3b30 !important;
+}
+
+.edit-input {
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: white !important;
+    border: 1px solid #00e1ff !important;
+    box-shadow: 0 0 10px rgba(0, 225, 255, 0.2) !important;
+    flex: 1;
+    margin-right: 15px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.edit-input:focus {
+    box-shadow: 0 0 15px rgba(0, 225, 255, 0.4) !important;
+}
